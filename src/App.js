@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min"
+import { HashRouter as Router, Route, Switch } from "react-router-dom"
+import "./assets/scss/global.scss"
+import { AppHeader } from "./cmps/AppHeader"
+import { Home } from './pages/Home'
+import { About } from "./pages/About"
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div className="App">
+        <AppHeader />
+        <main>
+          <Switch>
+            <Route path="/about" component={About}></Route>
+            <Route path="/" component={Home} ></Route>
+          </Switch>
+        </main>
+      </div>
+    </Router>
+  )
 }
 
-export default App;
+export default App
